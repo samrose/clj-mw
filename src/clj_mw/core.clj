@@ -1,7 +1,22 @@
 (ns clj-mw.core
-  (:gen-class))
+  (:gen-class)
+  (:require [clj-mw.api :as api]
+            [clj-mw.asyncapi :as aapi]))
 
 (defn -main
-  "I don't do a whole lot ... yet."
   [& args]
-  (println "Hello, World!"))
+  (api/login)
+  (def edit-token (api/get-token))
+  (def prom (aapi/edit-replace "TestAsync" {:content "Async testing again" :token edit-token}))
+  (println (:body @prom)))
+  ;(println (:tokens @edit-token)))
+
+(def ^:dynamic *verbose* false)
+
+(defmacro printfv
+  [fmt & args]
+  `(when *verbose*
+     (printf ~fmt ~@args)))
+(defmacro with-verbose
+  [& body]
+  `(binding [*verbose* true] ~@body))
