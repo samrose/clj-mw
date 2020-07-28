@@ -12,14 +12,13 @@ let
   neovim-with-config = neovim.override {
     configure = {
       customRC = ''
-        let g:deoplete#enable_at_startup = 1
         set title
         set nu
       '';
       packages.package.start = with vimPlugins; [
-        deoplete-nvim
-        deoplete-jedi
         fzf
+        vim-clojure-highlight
+	vim-clojure-static
         vim-fireplace
         vim-nix
         vim-parinfer
@@ -38,8 +37,10 @@ mkShell {
     clojure
     clj2nix
     git
+    joker
     leiningen
     neovim-with-config
+    python3
   ];
 
 }
