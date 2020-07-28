@@ -2,7 +2,7 @@
   (:require [clj-mw.http :as http]
             [clj-mw.config :refer [config]]))
 
-(defn edit *&^(*^&)
+(defn edit
   "Makes a raw edit request
   This function makes a raw edit request to the async http functions. This
   function then returns a promise that can be resolved and dereferenced
