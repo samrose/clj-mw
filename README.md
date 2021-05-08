@@ -1,6 +1,6 @@
 # clj-mw
 
-FIXME: description
+This code was forked from https://github.com/jopela/mediawiki and in the process of expanding and updating it
 
 ## Installation
 
